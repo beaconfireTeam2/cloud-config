@@ -1,0 +1,78 @@
+"paths": {
+    "/summary": {
+      "get": 
+        
+        "responses": {
+          "200": {
+                "schema": {
+                  "SmartTimeSheetSummaryDomain": "List<weeklyTimeSheetDomain>"
+
+SmartTimeSheetSummaryDomain{
+    List<weeklyTimeSheetDomain>
+}
+
+weeklyTimeSheetDomain{
+    Integer id;
+    Date weekEnd;
+    WeeklySchedualDomain: weeklySchedualDomain
+   Integer totalBillingHours;
+   Integer totalCompensatedHours
+   String approvalStatus;
+   String submissionStatus;
+   Integer floatingDaysWeek;
+   Integer floatingDaysLeft;
+   Integer vacationDaysLeft;
+   Integer vacationDaysWeek;
+}
+
+
+weeklySchedualDomain{
+    List<DailySchedualDomain>
+}
+
+DailySchedualDomain{
+    String date;
+    Time startTime;
+    Time endTime;
+    Boolean isFoating;
+    Boolean isHoliday;
+    Boolean isVacation;
+}
+//save
+openapi: 3.0.0
+info:
+  version: '1'
+  title: '3.save'
+servers:
+  - url: 'localhost:8080'
+paths:
+  /saveTimeSheet:
+    get:
+     requestBody:(weeklyTimeSheetDomain)
+        
+      responses:
+        '200':
+
+//upload
+  - url: 'localhost:8080'
+paths:
+  /uploadTimesheet:
+    get:
+
+    Request body: Multifile: TimesheetFile
+      
+      responses:
+        '200':
+         
+ //setDefault
+  - url: 'localhost:8080'
+paths:
+  /setDefault:
+    get:
+     requestBody:WeeklySchedualDomain
+        
+      responses:
+        '200':
+
+
+
