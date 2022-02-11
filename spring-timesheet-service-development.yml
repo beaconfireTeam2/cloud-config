@@ -9,8 +9,8 @@ spring:
     name: timesheet-service
 
 server:
-  # port: ${PORT:0}
-  port:8081
+  port: ${PORT:0}
+ 
 
 eureka:
   instance:
